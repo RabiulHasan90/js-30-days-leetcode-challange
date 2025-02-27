@@ -64,3 +64,23 @@ var map = function(arr, fn) {
      return result;
     
 };
+#2634
+var filter = function(arr, fn) {
+    let output = [];
+    for (let i=0; i<arr.length; i++){
+        if(fn(arr[i], i)){
+            output.push(arr[i])
+        }
+    }
+    return output
+};
+#2626
+var reduce = function(nums, fn, init) {
+    let res = init;
+    nums.forEach((n)=>{
+        res =fn(res, n);
+    })
+    return res;
+    // return nums.reduce(fn, init);
+    
+};
