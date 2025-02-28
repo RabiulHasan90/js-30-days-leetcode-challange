@@ -84,3 +84,79 @@ var reduce = function(nums, fn, init) {
     // return nums.reduce(fn, init);
     
 };
+#2629
+var compose = function(functions) {
+
+
+   const fn = (acc, fn) => fn(acc);
+   return function(x){
+    return functions.reduceRight(fn, x);
+
+   }
+    
+    return function(x) {
+        for(const fn of functions.riverse()){
+            x = fn(x);
+        }
+        return x;
+    }
+};
+// const fn = x=> x+1;
+/ const fn1 = x=> x * 2;
+// print(fn(fn1(4)));
+
+/**
+ * const fn = compose([x => x + 1, x => 2 * x])
+ * fn(4) // 9
+ */
+#2703
+ return args.lengt
+#2666
+var once = function(fn) {
+    let called = false;
+    
+    return function(...args){
+        if(called){
+            return undefined;
+        }
+        called = true
+        return fn(...args)
+        
+    }
+};
+
+/**
+ * let fn = (a,b,c) => (a + b + c)
+ * let onceFn = once(fn)
+ *
+ * onceFn(1,2,3); // 6
+ * onceFn(2,3,6); // returns undefined without calling fn
+ */
+
+#2723
+/**
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
+ */
+var addTwoPromises = async function(promise1, promise2) {
+     return promise1.then(v1 => promise2.then(v2 => v1+v2));
+};
+
+/**
+ * addTwoPromises(Promise.resolve(2), Promise.resolve(2))
+ *   .then(console.log); // 4
+ */
+#2621
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+ function callback(resolve, reject){
+    setTimeout(resolve, millis);
+ }
+
+    return new Promise(callback);
+    
+}
